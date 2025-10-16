@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <!-- <canvas id="glCanvas" width="400" height="300"></canvas> -->
+
+    <!-- <script>
+      // Get the WebGL rendering context
+      const canvas = document.getElementById("glCanvas");
+      const gl = canvas.getContext("webgl");
+
+      if (!gl) {
+        alert("WebGL not supported");
+      }
+
+      // Set the clear color to red (RGBA)
+      gl.clearColor(1.0, 0.0, 0.0, 1.0);
+
+      // Clear the color buffer
+      gl.clear(gl.COLOR_BUFFER_BIT);
+    </script> -->
+    <canvas id="glCanvas" width="400" height="300"></canvas>
+
+    <script>
+      const gl = document.getElementById("glCanvas").getContext("webgl");
+      if (!gl) alert("WebGL not supported");
+
+      let t = 0;
+      function draw() {
+        // Animate background color
+        const r = (Math.sin(t) + 1) / 2;
+        const g = (Math.cos(t) + 1) / 2;
+        const b = 0.3;
+
+        gl.clearColor(r, g, b, 1.0);
+        gl.clear(gl.COLOR_BUFFER_BIT);
+
+        t += 0.02;
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    </script>
+  </body>
+</html>
